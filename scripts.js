@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Инициализация анимаций
+
     AOS.init({
         duration: 800,
         once: true
     });
 
-    // Переключение темы
     const themeToggle = document.querySelector('.theme-toggle');
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
     });
 
-    // Обработчик навигации
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -40,12 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Первоначальная загрузка
     const initialSection = window.location.hash.substring(1) || 'home';
     document.querySelector(`[href="#${initialSection}"]`).click();
 });
 
-// Модальное окно
 function openModal() {
     document.getElementById('nemaloModal').style.display = 'block';
 }
@@ -60,7 +56,6 @@ window.onclick = function(event) {
     }
 }
 
-// Частицы
 particlesJS.load('particles', 'particles-config.json', function() {
     console.log('Particles.js loaded');
 });
