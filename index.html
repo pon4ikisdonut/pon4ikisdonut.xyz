@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pon4ikisdonut - Личный сайт</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- привет тому кто читает этот код, сразу скажу - мне немного помогала нейроннка т.к я не слишком шарю в этой теме-->
+    <!-- так что не судите строго, дизайн делала нейронка если что(!!)-->
+    <!-- также в коде есть комментарии для удобной навигации по нём, они разделены по категориям (блоки)--> 
+
+    <!-- Навигация -->
+    <nav>
+        <a href="#home" class="nav-link active">Главная</a>
+        <a href="#about" class="nav-link">Обо мне</a>
+        <a href="#projects" class="nav-link">Проекты</a>
+        <a href="#blog" class="nav-link">Блог</a>
+        <div class="theme-toggle">🌓</div>
+    </nav>
+
+    <!-- Главная -->
+    <section id="home" class="page-section active">
+        <div class="card" data-aos="fade-up">
+            <img src="images/logo.png" alt="Лого" class="logo">
+            <h1>pon4ikisdonut 🍩</h1>
+            <div class="social-links">
+                <a href="https://t.me/pon4ikbio" target="_blank">
+                    <img src="images/tglogo.png" alt="Telegram">
+                </a>
+                <a href="https://github.com/pon4ikisdonut" target="_blank">
+                    <img src="images/github.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="page-section">
+        <div class="card" data-aos="fade-up">
+            <h2>👨💻 Подробнее обо мне</h2>
+            
+            <div class="about-grid">
+                <!-- Блок с основной информацией -->
+                <div class="about-item" data-aos="zoom-in">
+                    <div class="about-icon">🎮</div>
+                    <h3>Кто я?</h3>
+                    <ul>
+                        <li>Имя: Евгений</li>
+                        <li>День рождения: 17 марта</li>
+                        <li>Локация: Украина 🇺🇦</li>
+                        <li>Ники: pon4ikisdonut, pon4ik, eng1x</li>
+                    </ul>
+                </div>
+
+                <!-- Блок с интересами -->
+                <div class="about-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="about-icon">💻</div>
+                    <h3>Моя деятельность</h3>
+                    <ul>
+                        <li>Разработка на Python (знаю основы)</li>
+                        <li>Создание Linux-дистрибутивов (учусь) </li>
+                        <li>Администрирование серверов</li>
+                    </ul>
+                </div>
+
+                <!-- Блок с целями -->
+                <div class="about-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="about-icon">🚀</div>
+                    <h3>Мои цели</h3>
+                    <ul>
+                        <li>Выпустить NemaloOS в публичный доступ</li>
+                        <li>Освоить Java разработку</li>
+                        <li>Создать сервер по Minecraft</li>
+                        <li>Освоить веб-разработку полностью (а не вот такие основы)</li>
+                    </ul>
+                </div>
+
+                <!-- Блок с увлечениями -->
+                <div class="about-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="about-icon">🍩</div>
+                    <h3>Хобби и увлечения</h3>
+                    <ul>
+                        <li>Программирование</li>
+                        <li>Системное Администрирование</li>
+                        <li>Стриминг на twitch</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="about-footer" data-aos="fade-up">
+                <p>"Самое главное в жизни - семья, кушать, спать, и гладить котов"</p>
+                <img src="images/dominik.jpg" alt="Семья..">
+            </div>
+        </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects" class="page-section">
+        <div class="card" data-aos="fade-up">
+            <h2>🚀 Мои проекты</h2>
+            <!-- NemaloOS -->
+            <div class="project" data-aos="fade-up" data-aos-delay="100">
+                <h3>NemaloOS</h3>
+                <div class="gallery">
+                    <img src="images/nemaloos.png" alt="Логотип NemaloOS">
+                </div>
+                <button class="button download-btn">Скачать</button>
+                <button class="button" onclick="openModal()">Подробнее</button>
+            </div>
+            <!-- ZPSR -->
+            <div class="project" data-aos="fade-up" data-aos-delay="200">
+                <h3>ZPSR Programming Language</h3>
+                <div class="gallery">
+                    <img src="images/zpsr.png" alt="Логотип ZPSR" style="width:120px; height:auto;">
+                </div>
+                <p style="font-size:0.9rem;">
+                    ZPSR — язык, похожий на Python, но с ключевыми словами на русском (раскладка РФ). Файлы <code>.zpsr</code>.
+                </p>
+                <button class="button" onclick="window.open('https://github.com/pon4ikisdonut/zpsr', '_blank')">
+                    Репозиторий на GitHub
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блог -->
+    <section id="blog" class="page-section">
+        <div class="card" data-aos="fade-up">
+            <h2>📝 Последние новости</h2>
+            <!-- ... существующие карточки блога ... -->
+        </div>
+    </section>
+
+    <!-- Модальное окно -->
+    <div id="nemaloModal" class="modal">
+        <div class="modal-content">
+            <h2>🚀 NemaloOS 25.05</h2>
+            <div class="project-details">
+                <h3>Особенности:</h3>
+                <ul>
+                    <li>Основа: Ubuntu Desktop 25.05</li>
+                    <li>Интерфейс: XFCE</li>
+                    <li>Предустановленные компоненты:
+                        <ul>
+                            <li>Fastfetch с кастомным логотипом</li>
+                            <li>Сетевые драйверы для Apple-устройств</li>
+                        </ul>
+                    </li>
+                    <li>Планы на будущее:
+                        <ul>
+                            <li>Максимально облегчить стандартный образ</li>
+                            <li>Собственный репозиторий пакетов</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="close-btn" onclick="closeModal()">✕ Закрыть</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
