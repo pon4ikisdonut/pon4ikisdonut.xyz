@@ -1,36 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({ duration: 800, once: true });
 
-    AOS.init({
-        duration: 800,
-        once: true
-    });
-
+    // === Тема ===
     const themeToggle = document.querySelector('.theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+
     themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        const isDark = document.body.classList.contains('dark-theme');
-        document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', (e) => {
+    // === Навигация ===
+    const links = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.page-section');
+
+    links.forEach(link => {
+        link.addEventListener('click', e => {
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
-            const currentSection = document.querySelector('.page-section.active');
-            const targetSection = document.getElementById(targetId);
+            const target = document.getElementById(targetId);
+            const active = document.querySelector('.page-section.active');
 
-            if (targetSection === currentSection) return;
+            if (target === active) return;
 
             document.body.classList.add('animate-bg');
-            currentSection.classList.add('exit');
-            
+            active.classList.add('exit');
+
             setTimeout(() => {
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                sections.forEach(sec => sec.classList.remove('active', 'exit'));
+                links.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
-                
-                currentSection.classList.remove('active', 'exit');
-                targetSection.classList.add('active');
-                
+                target.classList.add('active');
                 window.history.pushState(null, null, `#${targetId}`);
                 AOS.refresh();
                 document.body.classList.remove('animate-bg');
@@ -38,24 +41,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const initialSection = window.location.hash.substring(1) || 'home';
-    document.querySelector(`[href="#${initialSection}"]`).click();
-});
+    // === Первая секция ===
+    const initial = window.location.hash.substring(1) || 'home';
+    const initialLink = document.querySelector(`[href="#${initial}"]`);
+    if (initialLink) initialLink.classList.add('active');
+    const initialSection = document.getElementById(initial);
+    if (initialSection) initialSection.classList.add('active');
 
-function openModal() {
-    document.getElementById('nemaloModal').style.display = 'block';
-}
+    // === Модалка ===
+    window.openModal = () => document.getElementById('nemaloModal').style.display = 'block';
+    window.closeModal = () => document.getElementById('nemaloModal').style.display = 'none';
+    window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(); };
 
-function closeModal() {
-    document.getElementById('nemaloModal').style.display = 'none';
-}
-
-window.onclick = function(event) {
-    if (event.target.className === 'modal') {
-        closeModal();
-    }
-}
-
-particlesJS.load('particles', 'particles-config.json', function() {
-    console.log('Particles.js loaded');
+    // === Частицы ===
+    particlesJS('particles', {
+        "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#8A2BE2" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#8A2BE2", "opacity": 0.4, "width": 1 },
+            "move": { "enable": true, "speed": 6, "direction": "none", "out_mode": "out" }
+        },
+        "interactivity": {
+            "events": {
+                "onhover": { "enable": true, "mode": "repulse" },
+                "onclick": { "enable": true, "mode": "push" },
+                "resize": true
+            }
+        },
+        "retina_detect": true
+    });
 });
