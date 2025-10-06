@@ -28,6 +28,16 @@ body {
     overflow-x: hidden;
 }
 
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: transparent;
+}
+
 nav {
     padding: 20px;
     background: var(--card-bg);
@@ -150,93 +160,48 @@ body.animate-bg::after {
 
 .button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.download-btn {
-    background: #666 !important;
-    cursor: not-allowed;
-    position: relative;
-    overflow: hidden;
-}
-
-.download-ribbon {
-    position: absolute;
-    top: -10px;
-    right: -30px;
-    background: #000;
-    color: #ff0;
-    padding: 5px 30px;
-    transform: rotate(45deg);
-    font-size: 12px;
-    font-weight: bold;
-}
-
+/* Модалка */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
+    z-index: 2000;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.7);
-    z-index: 9999;
-    animation: fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background: var(--card-bg);
-    width: 90%;
-    max-width: 600px;
     padding: 30px;
     border-radius: 15px;
-    position: relative;
-    margin: 5% auto;
-    animation: slideDown 0.3s;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-100px); }
-    to { transform: translateY(0); }
+    max-width: 700px;
+    width: 90%;
+    color: var(--text);
+    animation: fadeIn 0.3s;
 }
 
 .close-btn {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    color: var(--primary);
-    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
 }
 
-.gallery {
-    display: grid;
-    gap: 15px;
-    margin: 20px 0;
+.close-btn:hover {
+    background: #b85cff;
 }
 
-.gallery img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;
-        padding: 10px;
-    }
-    
-    .nav-link {
-        font-size: 0.9rem;
-    }
-    
-    .theme-toggle {
-        position: static;
-        margin-left: auto;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
