@@ -10,8 +10,6 @@
 </head>
 <body>
 <div id="particles"></div>
-
-<!-- Навигация -->
 <nav>
     <a href="#home" class="nav-link active">Главная</a>
     <a href="#about" class="nav-link">Обо мне</a>
@@ -19,24 +17,17 @@
     <a href="#blog" class="nav-link">Блог</a>
     <div class="theme-toggle">🌓</div>
 </nav>
-
-<!-- Главная -->
+<div class="sections-wrapper">
 <section id="home" class="page-section active">
     <div class="card" data-aos="fade-up">
         <img src="images/logo.png" alt="Лого" class="logo">
         <h1>pon4ikisdonut 🍩</h1>
         <div class="social-links">
-            <a href="https://t.me/pon4ikbio" target="_blank">
-                <img src="images/tglogo.png" alt="Telegram">
-            </a>
-            <a href="https://github.com/pon4ikisdonut" target="_blank">
-                <img src="images/github.png" alt="GitHub">
-            </a>
+            <a href="https://t.me/pon4ikbio" target="_blank"><img src="images/tglogo.png" alt="Telegram"></a>
+            <a href="https://github.com/pon4ikisdonut" target="_blank"><img src="images/github.png" alt="GitHub"></a>
         </div>
     </div>
 </section>
-
-<!-- Обо мне -->
 <section id="about" class="page-section">
     <div class="card" data-aos="fade-up">
         <h2>👨💻 Подробнее обо мне</h2>
@@ -86,8 +77,6 @@
         </div>
     </div>
 </section>
-
-<!-- Проекты -->
 <section id="projects" class="page-section">
     <div class="card" data-aos="fade-up">
         <h2>🚀 Мои проекты</h2>
@@ -104,17 +93,11 @@
             <div class="gallery">
                 <img src="images/zpsr.png" alt="ZPSR" style="width:120px; height:auto;">
             </div>
-            <p style="font-size:0.9rem;">
-                ZPSR — язык, похожий на Python, но с ключевыми словами на русском. Файлы <code>.zpsr</code>.
-            </p>
-            <button class="button" onclick="window.open('https://github.com/pon4ikisdonut/zpsr', '_blank')">
-                Репозиторий на GitHub
-            </button>
+            <p style="font-size:0.9rem;">ZPSR — язык, похожий на Python, но с ключевыми словами на русском. Файлы <code>.zpsr</code>.</p>
+            <button class="button" onclick="window.open('https://github.com/pon4ikisdonut/zpsr', '_blank')">Репозиторий на GitHub</button>
         </div>
     </div>
 </section>
-
-<!-- Блог -->
 <section id="blog" class="page-section">
     <div class="card" data-aos="fade-up">
         <h2>📝 Последние новости</h2>
@@ -128,15 +111,9 @@
             <p class="post-date">24 мая 2025 года</p>
             <p>Новый домен: <a href="https://www.pon4ikisdonut.xyz/" target="_blank">pon4ikisdonut.xyz</a></p>
         </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="300">
-            <h3>Пепси с манго</h3>
-            <p class="post-date">21 мая 2025 года</p>
-            <p>Купил пепси с манго — вкусно! 1 литр за 34,60₴</p>
-        </div>
     </div>
 </section>
-
-<!-- Модалка -->
+</div>
 <div id="nemaloModal" class="modal">
     <div class="modal-content">
         <h2>🚀 NemaloOS 25.05</h2>
@@ -149,7 +126,6 @@
         <div class="close-btn" onclick="closeModal()">✕ Закрыть</div>
     </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="scripts.js"></script>
