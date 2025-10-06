@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({ duration: 800, once: true });
 
-    // === Тема ===
+    // === Тема с сохранением ===
     const themeToggle = document.querySelector('.theme-toggle');
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
@@ -17,60 +17,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.page-section');
 
+    function showSection(targetId) {
+        sections.forEach(sec => sec.classList.remove('active', 'exit'));
+        links.forEach(l => l.classList.remove('active'));
+        document.querySelector(`[href="#${targetId}"]`).classList.add('active');
+        document.getElementById(targetId).classList.add('active');
+        window.history.pushState(null, null, `#${targetId}`);
+        AOS.refresh();
+    }
+
     links.forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const target = document.getElementById(targetId);
-            const active = document.querySelector('.page-section.active');
-
-            if (target === active) return;
-
-            document.body.classList.add('animate-bg');
-            active.classList.add('exit');
-
-            setTimeout(() => {
-                sections.forEach(sec => sec.classList.remove('active', 'exit'));
-                links.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                target.classList.add('active');
-                window.history.pushState(null, null, `#${targetId}`);
-                AOS.refresh();
-                document.body.classList.remove('animate-bg');
-            }, 400);
+            showSection(link.getAttribute('href').substring(1));
         });
     });
 
-    // === Первая секция ===
+    // === Первичная секция ===
     const initial = window.location.hash.substring(1) || 'home';
-    const initialLink = document.querySelector(`[href="#${initial}"]`);
-    if (initialLink) initialLink.classList.add('active');
-    const initialSection = document.getElementById(initial);
-    if (initialSection) initialSection.classList.add('active');
+    showSection(initial);
 
     // === Модалка ===
-    window.openModal = () => document.getElementById('nemaloModal').style.display = 'block';
+    window.openModal = () => document.getElementById('nemaloModal').style.display = 'flex';
     window.closeModal = () => document.getElementById('nemaloModal').style.display = 'none';
     window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(); };
 
     // === Частицы ===
     particlesJS('particles', {
-        "particles": {
-            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": "#8A2BE2" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.5 },
-            "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#8A2BE2", "opacity": 0.4, "width": 1 },
-            "move": { "enable": true, "speed": 6, "direction": "none", "out_mode": "out" }
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#8A2BE2" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5 },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#8A2BE2", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 6, out_mode: "out" }
         },
-        "interactivity": {
-            "events": {
-                "onhover": { "enable": true, "mode": "repulse" },
-                "onclick": { "enable": true, "mode": "push" },
-                "resize": true
-            }
-        },
-        "retina_detect": true
+        interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true } },
+        retina_detect: true
     });
 });
