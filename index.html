@@ -1,203 +1,157 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data:;">
-    <title>pon4ikisdonut - Личный сайт</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data:;">
+<title>pon4ikisdonut - Личный сайт</title>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="particles"></div>
+<div id="particles"></div>
 
-    <!-- Навигация -->
-    <nav>
-        <a href="#home" class="nav-link active">Главная</a>
-        <a href="#about" class="nav-link">Обо мне</a>
-        <a href="#projects" class="nav-link">Проекты</a>
-        <a href="#blog" class="nav-link">Блог</a>
-        <div class="theme-toggle">🌓</div>
-    </nav>
+<!-- Навигация -->
+<nav>
+    <a href="#home" class="nav-link active">Главная</a>
+    <a href="#about" class="nav-link">Обо мне</a>
+    <a href="#projects" class="nav-link">Проекты</a>
+    <a href="#blog" class="nav-link">Блог</a>
+    <div class="theme-toggle">🌓</div>
+</nav>
 
-    <!-- Главная -->
-    <section id="home" class="page-section active">
-        <div class="card" data-aos="fade-up">
-            <img src="images/logo.png" alt="Лого" class="logo">
-            <h1>pon4ikisdonut 🍩</h1>
-            <div class="social-links">
-                <a href="https://t.me/pon4ikbio" target="_blank">
-                    <img src="images/tglogo.png" alt="Telegram">
-                </a>
-                <a href="https://github.com/pon4ikisdonut" target="_blank">
-                    <img src="images/github.png" alt="GitHub">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Обо мне -->
-    <section id="about" class="page-section">
-        <div class="card" data-aos="fade-up">
-            <h2>👨💻 Подробнее обо мне</h2>
-            <div class="about-grid">
-                <div class="about-item" data-aos="zoom-in">
-                    <div class="about-icon">🎮</div>
-                    <h3>Кто я?</h3>
-                    <ul>
-                        <li>Имя: Евгений</li>
-                        <li>День рождения: 17 марта</li>
-                        <li>Локация: Украина 🇺🇦</li>
-                        <li>Ники: pon4ikisdonut, pon4ik, eng1x</li>
-                    </ul>
-                </div>
-
-                <div class="about-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="about-icon">💻</div>
-                    <h3>Моя деятельность</h3>
-                    <ul>
-                        <li>Разработка на Python (знаю основы)</li>
-                        <li>Создание Linux-дистрибутивов (учусь)</li>
-                        <li>Администрирование серверов</li>
-                    </ul>
-                </div>
-
-                <div class="about-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="about-icon">🚀</div>
-                    <h3>Мои цели</h3>
-                    <ul>
-                        <li>Выпустить NemaloOS в публичный доступ</li>
-                        <li>Освоить Java разработку</li>
-                        <li>Создать сервер по Minecraft</li>
-                        <li>Освоить веб-разработку полностью</li>
-                    </ul>
-                </div>
-
-                <div class="about-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="about-icon">🍩</div>
-                    <h3>Хобби и увлечения</h3>
-                    <ul>
-                        <li>Программирование</li>
-                        <li>Системное администрирование</li>
-                        <li>Стриминг на Twitch</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="about-footer" data-aos="fade-up">
-                <p>"Самое главное в жизни — семья, кушать, спать и гладить котов"</p>
-                <img src="images/dominik.jpg" alt="Семья..">
-            </div>
-        </div>
-    </section>
-
-    <!-- Проекты -->
-    <section id="projects" class="page-section">
-        <div class="card" data-aos="fade-up">
-            <h2>🚀 Мои проекты</h2>
-            <div class="project" data-aos="fade-up" data-aos-delay="100">
-                <h3>NemaloOS</h3>
-                <div class="gallery">
-                    <img src="images/nemaloos.png" alt="NemaloOS">
-                </div>
-                <button class="button download-btn">Скачать</button>
-                <button class="button" onclick="openModal()">Подробнее</button>
-            </div>
-
-            <div class="project" data-aos="fade-up" data-aos-delay="200">
-                <h3>ZPSR Programming Language</h3>
-                <div class="gallery">
-                    <img src="images/zpsr.png" alt="ZPSR" style="width:120px; height:auto;">
-                </div>
-                <p style="font-size:0.9rem;">
-                    ZPSR — язык, похожий на Python, но с ключевыми словами на русском (раскладка РФ). Файлы <code>.zpsr</code>.
-                </p>
-                <button class="button" onclick="window.open('https://github.com/pon4ikisdonut/zpsr', '_blank')">
-                    Репозиторий на GitHub
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Блог -->
-    <section id="blog" class="page-section">
-        <div class="card" data-aos="fade-up">
-            <h2>📝 Последние новости</h2>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Всё сломалось... но я почти починил!!!</h3>
-                <p class="post-date">13 июня 2025 года</p>
-                <p>Привет всем! Ранее сайт лежал из-за хостинга, но я почти всё восстановил. Новостей ещё много впереди!</p>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <p style="color: red; font-weight: bold; font-size: 24px;">ВАЖНО!</p>
-                <h3>Смена домена</h3>
-                <p class="post-date">24 мая 2025 года</p>
-                <p>Теперь сайт доступен на <a href="https://www.pon4ikisdonut.xyz/" target="_blank">https://www.pon4ikisdonut.xyz/</a></p>
-            </div> 
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Я купил пепси с манго</h3>
-                <p class="post-date">21 мая 2025 года</p>
-                <p>В форе купил пепси с манго (вкусная кстати)! 1 литр за 34,60₴ 😎</p>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Удобная загрузка</h3>
-                <p class="post-date">21 мая 2025 года</p>
-                <p>Теперь обновления сайта загружаются через FTP расширение VS Code — удобно!</p>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Логотип NemaloOS</h3>
-                <p class="post-date">20 мая 2025 года</p>
-                <p>Создал новый логотип NemaloOS — смотри в разделе «Проекты»!</p>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Начало разработки NemaloOS</h3>
-                <p class="post-date">19 мая 2025 года</p>
-                <p>Начал разработку своего дистрибутива Linux на базе Ubuntu 25.05!</p>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Я создал сайт!</h3>
-                <p class="post-date">18 мая 2025 года</p>
-                <p>Мой первый личный сайт готов и работает! 🎉</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Модалка -->
-    <div id="nemaloModal" class="modal">
-        <div class="modal-content">
-            <h2>🚀 NemaloOS 25.05</h2>
-            <div class="project-details">
-                <h3>Особенности:</h3>
-                <ul>
-                    <li>Основа: Ubuntu Desktop 25.05</li>
-                    <li>Интерфейс: XFCE</li>
-                    <li>Предустановленные компоненты:
-                        <ul>
-                            <li>Fastfetch с кастомным логотипом</li>
-                            <li>Сетевые драйверы для Apple-устройств</li>
-                        </ul>
-                    </li>
-                    <li>Планы:
-                        <ul>
-                            <li>Максимально облегчить образ</li>
-                            <li>Создать собственный репозиторий пакетов</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="close-btn" onclick="closeModal()">✕ Закрыть</div>
+<!-- Главная -->
+<section id="home" class="page-section active">
+    <div class="card" data-aos="fade-up">
+        <img src="images/logo.png" alt="Лого" class="logo">
+        <h1>pon4ikisdonut 🍩</h1>
+        <div class="social-links">
+            <a href="https://t.me/pon4ikbio" target="_blank">
+                <img src="images/tglogo.png" alt="Telegram">
+            </a>
+            <a href="https://github.com/pon4ikisdonut" target="_blank">
+                <img src="images/github.png" alt="GitHub">
+            </a>
         </div>
     </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="scripts.js"></script>
+<!-- Обо мне -->
+<section id="about" class="page-section">
+    <div class="card" data-aos="fade-up">
+        <h2>👨💻 Подробнее обо мне</h2>
+        <div class="about-grid">
+            <div class="about-item" data-aos="zoom-in">
+                <div class="about-icon">🎮</div>
+                <h3>Кто я?</h3>
+                <ul>
+                    <li>Имя: Евгений</li>
+                    <li>День рождения: 17 марта</li>
+                    <li>Локация: Украина 🇺🇦</li>
+                    <li>Ники: pon4ikisdonut, pon4ik, eng1x</li>
+                </ul>
+            </div>
+            <div class="about-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="about-icon">💻</div>
+                <h3>Моя деятельность</h3>
+                <ul>
+                    <li>Разработка на Python (основы)</li>
+                    <li>Создание Linux-дистрибутивов (учусь)</li>
+                    <li>Администрирование серверов</li>
+                </ul>
+            </div>
+            <div class="about-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="about-icon">🚀</div>
+                <h3>Мои цели</h3>
+                <ul>
+                    <li>Выпустить NemaloOS в публичный доступ</li>
+                    <li>Освоить Java разработку</li>
+                    <li>Создать сервер по Minecraft</li>
+                    <li>Освоить веб-разработку полностью</li>
+                </ul>
+            </div>
+            <div class="about-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="about-icon">🍩</div>
+                <h3>Хобби</h3>
+                <ul>
+                    <li>Программирование</li>
+                    <li>Системное администрирование</li>
+                    <li>Стриминг на Twitch</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-footer" data-aos="fade-up">
+            <p>"Самое главное — семья, кушать, спать и гладить котов"</p>
+            <img src="images/dominik.jpg" alt="Семья..">
+        </div>
+    </div>
+</section>
+
+<!-- Проекты -->
+<section id="projects" class="page-section">
+    <div class="card" data-aos="fade-up">
+        <h2>🚀 Мои проекты</h2>
+        <div class="project" data-aos="fade-up" data-aos-delay="100">
+            <h3>NemaloOS</h3>
+            <div class="gallery">
+                <img src="images/nemaloos.png" alt="NemaloOS">
+            </div>
+            <button class="button download-btn">Скачать</button>
+            <button class="button" onclick="openModal()">Подробнее</button>
+        </div>
+        <div class="project" data-aos="fade-up" data-aos-delay="200">
+            <h3>ZPSR Programming Language</h3>
+            <div class="gallery">
+                <img src="images/zpsr.png" alt="ZPSR" style="width:120px; height:auto;">
+            </div>
+            <p style="font-size:0.9rem;">
+                ZPSR — язык, похожий на Python, но с ключевыми словами на русском. Файлы <code>.zpsr</code>.
+            </p>
+            <button class="button" onclick="window.open('https://github.com/pon4ikisdonut/zpsr', '_blank')">
+                Репозиторий на GitHub
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Блог -->
+<section id="blog" class="page-section">
+    <div class="card" data-aos="fade-up">
+        <h2>📝 Последние новости</h2>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Всё сломалось... почти починил!</h3>
+            <p class="post-date">13 июня 2025 года</p>
+            <p>Привет всем! Сайт ранее лежал из-за хостинга, но теперь почти всё восстановлено.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Смена домена</h3>
+            <p class="post-date">24 мая 2025 года</p>
+            <p>Новый домен: <a href="https://www.pon4ikisdonut.xyz/" target="_blank">pon4ikisdonut.xyz</a></p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <h3>Пепси с манго</h3>
+            <p class="post-date">21 мая 2025 года</p>
+            <p>Купил пепси с манго — вкусно! 1 литр за 34,60₴</p>
+        </div>
+    </div>
+</section>
+
+<!-- Модалка -->
+<div id="nemaloModal" class="modal">
+    <div class="modal-content">
+        <h2>🚀 NemaloOS 25.05</h2>
+        <ul>
+            <li>Основа: Ubuntu Desktop 25.05</li>
+            <li>Интерфейс: XFCE</li>
+            <li>Fastfetch с кастомным логотипом</li>
+            <li>Сетевые драйверы для Apple-устройств</li>
+        </ul>
+        <div class="close-btn" onclick="closeModal()">✕ Закрыть</div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
